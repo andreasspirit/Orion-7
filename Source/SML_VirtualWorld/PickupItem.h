@@ -1,10 +1,10 @@
-﻿// PickupItem.h
+// PickupItem.h
 #pragma once
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "InteractableInterface.h"
-#include "PickUpItem.generated.h"
+#include "PickupItem.generated.h"
 
 class USphereComponent;
 class UStaticMeshComponent;
@@ -14,17 +14,17 @@ class UStaticMeshComponent;
  * Create Blueprint children of this for each pickup type.
  */
 UCLASS()
-class APickUpItem : public AActor, public IInteractableInterface
+class APickupItem : public AActor, public IInteractableInterface
 {
 	GENERATED_BODY()
 
 public:
-	APickUpItem();
+	APickupItem();
 
 protected:
 	virtual void BeginPlay() override;
 
-	// ─── Components ───────────────────────────────────────────
+	// ??? Components ???????????????????????????????????????????
 
 	/** The visible mesh of the item. Assign in Blueprint. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
@@ -34,7 +34,7 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	TObjectPtr<USphereComponent> CollisionComp;
 
-	// ─── Configuration ────────────────────────────────────────
+	// ??? Configuration ????????????????????????????????????????
 
 	/** Name shown in the interaction prompt. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pickup")
@@ -44,12 +44,12 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pickup")
 	FName InventoryTag = TEXT("Item");
 
-	// ─── Interactable Interface ───────────────────────────────
+	// ??? Interactable Interface ???????????????????????????????
 
 	virtual void Interact_Implementation(APawn* InstigatorPawn) override;
 	virtual FText GetInteractionPrompt_Implementation() const override;
 
-	// ─── Pickup logic ─────────────────────────────────────────
+	// ??? Pickup logic ?????????????????????????????????????????
 
 	/** Called when the player picks up this item. Override in subclasses. */
 	UFUNCTION(BlueprintNativeEvent, Category = "Pickup")

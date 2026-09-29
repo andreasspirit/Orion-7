@@ -1,11 +1,11 @@
 // PickupItem.cpp
-#include "PickUpItem.h"
+#include "PickupItem.h"
 #include "Components/SphereComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "GameFramework/Pawn.h"
 #include "GameFramework/PlayerController.h"
 
-APickUpItem::APickUpItem()
+APickupItem::APickupItem()
 {
 	PrimaryActorTick.bCanEverTick = false;
 
@@ -21,22 +21,22 @@ APickUpItem::APickUpItem()
 	MeshComp->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 }
 
-void APickUpItem::BeginPlay()
+void APickupItem::BeginPlay()
 {
 	Super::BeginPlay();
 }
 
-void APickUpItem::Interact_Implementation(APawn* InstigatorPawn)
+void APickupItem::Interact_Implementation(APawn* InstigatorPawn)
 {
 	OnPickedUp(InstigatorPawn);
 }
 
-FText APickUpItem::GetInteractionPrompt_Implementation() const
+FText APickupItem::GetInteractionPrompt_Implementation() const
 {
 	return FText::FromString(FString::Printf(TEXT("Press E to pick up %s"), *ItemName));
 }
 
-void APickUpItem::OnPickedUp_Implementation(APawn* InstigatorPawn)
+void APickupItem::OnPickedUp_Implementation(APawn* InstigatorPawn)
 {
 	if (!InstigatorPawn)
 	{
