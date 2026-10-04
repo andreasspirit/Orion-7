@@ -44,6 +44,10 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pickup")
 	FName InventoryTag = TEXT("Item");
 
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pickup")
+	TObjectPtr<USoundBase> PickupSound;
+
 	// ??? Interactable Interface ???????????????????????????????
 
 	virtual void Interact_Implementation(APawn* InstigatorPawn) override;

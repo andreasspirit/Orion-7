@@ -4,6 +4,7 @@
 #include "Components/StaticMeshComponent.h"
 #include "GameFramework/Pawn.h"
 #include "GameFramework/PlayerController.h"
+#include "Kismet/GameplayStatics.h"
 
 APickupItem::APickupItem()
 {
@@ -53,7 +54,10 @@ void APickupItem::OnPickedUp_Implementation(APawn* InstigatorPawn)
 		UE_LOG(LogTemp, Log, TEXT("Player picked up: %s (tag: %s)"),
 			*ItemName, *InventoryTag.ToString());
 	}
-
+	if (PickupSound)
+	{
+		UGameplayStatics::PlaySoundAtLocation(this, PickupSound, GetActorLocation());
+	}
 	// Destroy the pickup actor from the world
 	Destroy();
 }
