@@ -1,7 +1,7 @@
 ﻿// ConversationalNPC.cpp
 #include "NPC.h"
 #include "Components/SphereComponent.h"
-#include "Components/StaticMeshComponent.h"
+#include "Components/SkeletalMeshComponent.h"
 #include "Components/WidgetComponent.h"
 #include "Blueprint/UserWidget.h"
 #include "GameFramework/PlayerController.h"
@@ -14,9 +14,9 @@ ANPC::ANPC()
 	PrimaryActorTick.bCanEverTick = false;
 
 	// ─── Root: Static mesh for the NPC body ───────────────────
-	MeshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MeshComp"));
+	MeshComp = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("MeshComp"));
 	RootComponent = MeshComp;
-	MeshComp->SetCollisionProfileName(TEXT("BlockAll"));
+	MeshComp->SetCollisionProfileName(TEXT("CharacterMesh"));
 
 	// ─── Interaction sphere (trigger volume) ──────────────────
 	InteractionSphere = CreateDefaultSubobject<USphereComponent>(TEXT("InteractionSphere"));

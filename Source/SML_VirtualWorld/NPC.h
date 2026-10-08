@@ -27,7 +27,7 @@ protected:
 
 	/** The NPC's visible body. Swap for a SkeletalMesh when you have animations. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
-	TObjectPtr<UStaticMeshComponent> MeshComp;
+	TObjectPtr<USkeletalMeshComponent> MeshComp;
 
 	/** Sphere trigger — when the player enters this, the interaction prompt appears. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
