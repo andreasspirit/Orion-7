@@ -167,8 +167,8 @@ void ANPC::StartConversation(APawn* InstigatorPawn)
 	}
 
 	DialogueUI->OnPlayerMessageSent.AddDynamic(this, &ANPC::HandlePlayerMessage);
-	LLMConnector->OnLLMResponse.AddDynamic(this, &ANPC::HandleLLMResponse);
-	LLMConnector->OnLLMError.AddDynamic(this, &ANPC::HandleLLMError);
+	LLMConnector->OnLLMResponse.AddUniqueDynamic(this, &ANPC::HandleLLMResponse);
+	LLMConnector->OnLLMError.AddUniqueDynamic(this, &ANPC::HandleLLMError);
 }
 
 void ANPC::EndConversation()
