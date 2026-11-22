@@ -106,6 +106,7 @@ void UTP_WeaponComponent::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
 	if (Character == nullptr)
 	{
+		Super::EndPlay(EndPlayReason);
 		return;
 	}
 
@@ -114,6 +115,7 @@ void UTP_WeaponComponent::EndPlay(const EEndPlayReason::Type EndPlayReason)
 		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
 		{
 			Subsystem->RemoveMappingContext(FireMappingContext);
+			Super::EndPlay(EndPlayReason);
 		}
 	}
 }

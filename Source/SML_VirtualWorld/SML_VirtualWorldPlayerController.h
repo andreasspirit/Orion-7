@@ -28,4 +28,8 @@ protected:
 	virtual void BeginPlay() override;
 
 	// End Actor interface
+public:
+	/** Debug: open the console (~) and type ShowGameState. */
+	UFUNCTION(Exec)
+	void ShowGameState();
 };
